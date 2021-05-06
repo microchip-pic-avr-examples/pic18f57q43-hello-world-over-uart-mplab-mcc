@@ -1,9 +1,9 @@
 <!-- Please do not change this logo with link -->
 [![MCHP](images/microchip.png)](https://www.microchip.com)
 
-# Hello World using UART
+# Hello World over UART
 
-This example shows how to configure the UART in MPLAB Code Configurator (MCC). The example uses the Pin Manager to configure the pin and generate an API with which the pin is later interfaced. Also, the MPLAB Data Visualizer is used to show the output from the UART communication.
+This example shows how to configure UART in MPLAB Code Configurator (MCC). The example uses the Pin Manager to configure the pin and generate an API with which the pin is later interfaced. Also, the MPLAB Data Visualizer is used to show the output from the UART communication.
 
 ## Related Documentation
 
@@ -41,6 +41,7 @@ When the UART Driver was added, it was shown in the Project Resources and in the
 *Builder*
 ![MCC - Builder with UART](images/MCC_builder_uart_added.png)
 
+If you click the '+' button at the top of the System Firmware box, it will expand to show what is in the above image.  From here, clicking the 'Pins' box will open the Pins Grid View.  To utilize that view, see the "Pin Configuration" section below.
 
 ### UART Configuration
 The UART needs to be configured properly in order to have the code work properly.  There are a few possibilities of what you will see on your screen.  Feel free to skip ahead to the image that matches what you see on your screen.
@@ -57,7 +58,7 @@ Next click on the little black solid circle in the upper right of the screen (re
 ![MCC - Nav to UART Config 2](images/MCC_nav_to_uart_config_2.png)
 
 
-Now, the correct settings are selected in the configuration window.  The **Enable UART** switch is toggled on.  The **Baud Rate** is set to 9600.  The **Enable Transmit** switch is toggled on.  In the **Advanced Settings** section, the **Baurd Rate Generator Speed Select** is set to high speed.  The changes are highlighted by the red boxes (see image below).
+Now, the correct settings are selected in the configuration window.  The **Enable UART** switch is toggled on.  The **Baud Rate** is set to 9600.  The **Enable Transmit** switch is toggled on.  In the **Advanced Settings** section, the **Baud Rate Generator Speed Select** is set to high speed.  The changes are highlighted by the red boxes (see image below).
 
 *UART1 Configuration tab*
 ![MCC - UART Config menu](images/MCC_uart_config_menu.png)
