@@ -30,15 +30,18 @@ MCC with Melody library was used to implement this example as shown in the follo
 The UART Driver was simply added to the project by locating it in the Device Resources pane on the left side in MCC. Within the Drivers menu (expand if needed, red box in image below)UART menu (expand if needed, green box in image below), click on the green plus next to where it says UART1 (blue box in image below)
 
 *Device Resources*
+
 ![MCC - Adding UART Driver](images/MCC_add_uart_driver.png)
 
 
 When the UART Driver was added, it was shown in the Project Resources and in the Builder view as seen below.
 
 *Project Resources - UART1*
+
 ![MCC - Project Resources with UART](images/MCC_project_resources_uart_added.png)
 
 *Builder*
+
 ![MCC - Builder with UART](images/MCC_builder_uart_added.png)
 
 If you click the '+' button at the top of the System Firmware box, it will expand to show what is in the above image.  From here, clicking the 'Pins' box will open the Pins Grid View.  To utilize that view, see the "Pin Configuration" section below.
@@ -49,18 +52,21 @@ The UART needs to be configured properly in order to have the code work properly
 There should be a tab on the right side that says "UART1", click it (red box, see image below).
 
 *UART1 tab is vertical on the right*
+
 ![MCC - Nav to UART Config 1](images/MCC_nav_to_uart_config_1.png)
 
 
 Next click on the little black solid circle in the upper right of the screen (red box, see image below).
 
 *UART1 tab is selected, menu is behind builder tab*
+
 ![MCC - Nav to UART Config 2](images/MCC_nav_to_uart_config_2.png)
 
 
 Now, the correct settings are selected in the configuration window.  The **Enable UART** switch is toggled on.  The **Baud Rate** is set to 9600.  The **Enable Transmit** switch is toggled on.  In the **Advanced Settings** section, the **Baud Rate Generator Speed Select** is set to high speed.  The changes are highlighted by the red boxes (see image below).
 
 *UART1 Configuration tab*
+
 ![MCC - UART Config menu](images/MCC_uart_config_menu.png)
 
 
@@ -68,12 +74,14 @@ Now, the correct settings are selected in the configuration window.  The **Enabl
 The Pin controlling the UART on the Curiosity Nano board was configured using the Pins Grid View.  The Pins Grid View is accessed by clicking on the Pins line in Project Resources.
 
 *Project Resources - Pins*
+
 ![MCC - Open Pin Manager](images/MCC_project_resources_pins.png)
 
 
 Then the pin connected to the RX pin, RC7, was selected as an output by clicking the corresponding padlock symbol (red box, see image below) and the TX pin, RC6, was selected as an input by clicking the corresponding symbol (green box, see image below).
 
 *Pins Grid View*
+
 ![MCC - Set RX/TX pins](images/MCC_pins_grid_view.png)
 
 
@@ -81,6 +89,7 @@ Then the pin connected to the RX pin, RC7, was selected as an output by clicking
 The RX was connected to pin RC6 on the Curiosity Nano.  The exact connect is shown in the image below by the green line.
 
 *Curiosity Nano UART Circuit*
+
 ![Curiosity Nano - Setting up Circuit](images/Curiosity_Nano_circuit.png)
 
 
@@ -88,6 +97,7 @@ The RX was connected to pin RC6 on the Curiosity Nano.  The exact connect is sho
 Click Generate within the Project Resources Menu.
 
 *Generate the code*
+
 ![MCC - Generate Code](images/MCC_generate_code.png)
 
 There are a few pieces of code that need to be added to the main.c program. 
@@ -131,11 +141,13 @@ After having flashed the application to the PIC18F57Q47 Curiosity Nano, the resu
 In order to see the "Hello World" that was programmed earlier. The settings for the COM port (bottom left, see image below), the settings for the Terminal (upper right, see image below), and the button (the 'play' symbol) next to the COM port the Curiosity Nano is connected to (COM7, in image below) need to be properly configured.The following image shows the terminal when it is off.
 
 *Data Visualizer - COM Port off*
+
 ![MPLABX - Data Visualizer Off](images/MPLAB_Data_Visualizer.png)
 
 The image below is what the Data Visualizer should look like when the button next to the COM port is clicked (shows the stop logo).
 
 *Data Visualizer - COM Port On*
+
 ![MPLABX - Data Visualizer On](images/MPLAB_Data_Visualizer_on.png)
 
 ## Summary
