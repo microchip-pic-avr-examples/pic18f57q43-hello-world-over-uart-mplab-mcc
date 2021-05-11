@@ -8,8 +8,8 @@ This example shows how to configure UART in MPLAB Code Configurator (MCC). The e
 ## Related Documentation
 
 - [MPLAB Code Configurator](https://www.microchip.com/en-us/development-tools-tools-and-software/embedded-software-center/mplab-code-configurator)
-- [PIC18F57Q47 Data Sheet](https://ww1.microchip.com/downloads/en/DeviceDoc/PIC18F27-47-57Q43-Data-Sheet-DS40002147E.pdf)
-- [PIC18F57Q47 Family Product Page](https://www.microchip.com/wwwproducts/en/PIC18F57Q43)
+- [PIC18F57Q43 Data Sheet](https://ww1.microchip.com/downloads/en/DeviceDoc/PIC18F27-47-57Q43-Data-Sheet-DS40002147E.pdf)
+- [PIC18F57Q43 Family Product Page](https://www.microchip.com/wwwproducts/en/PIC18F57Q43)
 
 ## Software Used
 
@@ -21,20 +21,20 @@ This example shows how to configure UART in MPLAB Code Configurator (MCC). The e
 - [MPLAB Data Visualizer Plugin](https://www.microchip.com/en-us/development-tools-tools-and-software/embedded-software-center/mplab-data-visualizer?utm_source=GitHub&utm_medium=TextLink&utm_campaign=MCU8_MMTCha_PIC18FQ43&utm_content=pic18q43_v_to_f_github)
 
 ## Hardware Used
-- [Microchip PIC18F47Q57 Curiosity Nano Evaluation Kit](https://www.microchip.com/Developmenttools/ProductDetails/DM164150)
+- [Microchip PIC18F57Q43 Curiosity Nano Evaluation Kit](https://www.microchip.com/Developmenttools/ProductDetails/DM164150)
 
 ## Setup
 MCC with Melody library was used to implement this example as shown in the following sections.
 
 ### UART Driver
-The UART Driver was simply added to the project by locating it in the Device Resources pane on the left side in MCC. Within the Drivers menu (expand if needed, red box in image below)UART menu (expand if needed, green box in image below), click on the green plus next to where it says UART1 (blue box in image below)
+The UART Driver is added to the project by locating it in the Device Resources pane on the left side in MCC. Within the Drivers menu (expand if needed, red box in image below) UART menu (expand if needed, green box in image below), click on the green plus next to where it says UART1 (blue box in image below)
 
 *Device Resources*
 
 ![MCC - Adding UART Driver](images/MCC_add_uart_driver.png)
 
 
-When the UART Driver was added, it was shown in the Project Resources and in the Builder view as seen below.
+When the UART Driver is added, it is shown in the Project Resources and in the Builder view as seen below.
 
 *Project Resources - UART1*
 
@@ -47,7 +47,7 @@ When the UART Driver was added, it was shown in the Project Resources and in the
 If you click the '+' button at the top of the System Firmware box, it will expand to show what is in the above image.  From here, clicking the 'Pins' box will open the Pins Grid View.  To utilize that view, see the "Pin Configuration" section below.
 
 ### UART Configuration
-The UART needs to be configured properly in order to have the code work properly.  There are a few possibilities of what you will see on your screen.  Feel free to skip ahead to the image that matches what you see on your screen.
+The UART needs to be configured properly in order to generate the correct driver.  There are a few possibilities of what you will see on your screen.  Feel free to skip ahead to the image that matches what you see on your screen.
 
 There should be a tab on the right side that says "UART1", click it (red box, see image below).
 
@@ -62,8 +62,11 @@ Next click on the little black solid circle in the upper right of the screen (re
 
 ![MCC - Nav to UART Config 2](images/MCC_nav_to_uart_config_2.png)
 
-
-Now, the correct settings are selected in the configuration window.  The **Enable UART** switch is toggled on.  The **Baud Rate** is set to 9600.  The **Enable Transmit** switch is toggled on.  In the **Advanced Settings** section, the **Baud Rate Generator Speed Select** is set to high speed.  The changes are highlighted by the red boxes (see image below).
+The changes are highlighted by the red boxes (see image below):
+- **Enable UART** is toggled on
+- **Baud Rate** is set to 9600
+- **Enable Transmit** switch is toggled on
+- **Baud Rate Generator Speed Select** is set to high speed
 
 *UART1 Configuration tab*
 
@@ -78,20 +81,11 @@ The Pin controlling the UART on the Curiosity Nano board was configured using th
 ![MCC - Open Pin Manager](images/MCC_project_resources_pins.png)
 
 
-Then the pin connected to the RX pin, RC7, was selected as an output by clicking the corresponding padlock symbol (red box, see image below) and the TX pin, RC6, was selected as an input by clicking the corresponding symbol (green box, see image below).
+Then the pin connected to the RX pin, RC7, was selected as an output by clicking the corresponding padlock symbol (red box, see image below) and the TX pin, RF0, was selected as an input by clicking the corresponding symbol (green box, see image below).
 
 *Pins Grid View*
 
 ![MCC - Set RX/TX pins](images/MCC_pins_grid_view.png)
-
-
-### Circuit Implementation
-The RX was connected to pin RC6 on the Curiosity Nano.  The exact connect is shown in the image below by the green line.
-
-*Curiosity Nano UART Circuit*
-
-![Curiosity Nano - Setting up Circuit](images/Curiosity_Nano_circuit.png)
-
 
 ### Code Implementation
 Click Generate within the Project Resources Menu.
@@ -100,14 +94,14 @@ Click Generate within the Project Resources Menu.
 
 ![MCC - Generate Code](images/MCC_generate_code.png)
 
-There are a few pieces of code that need to be added to the main.c program. 
+There are a few lines of code that need to be added to the main.c file. 
 
 First, the code needs to include the string.h library. Include it by using the following command (second line below).
 ```c
 #include "mcc_generated_files/system/system.h"
 #include <string.h>
 ```
-Second, include the following function that uses the UART1 API and will used later.
+Second, include the following function that uses the UART1 API and will be used later.
 
 ```c
 void UART1_sendString(const char *str)
@@ -136,9 +130,20 @@ int main(void)
 
 ## Operation
 
-After having flashed the application to the PIC18F57Q47 Curiosity Nano, the result will still not be visible.
+After having flashed the application to the PIC18F57Q43 Curiosity Nano, the result will still not be visible.
 
-In order to see the "Hello World" that was programmed earlier. The settings for the COM port (bottom left, see image below), the settings for the Terminal (upper right, see image below), and the button (the 'play' symbol) next to the COM port the Curiosity Nano is connected to (COM7, in image below) need to be properly configured.The following image shows the terminal when it is off.
+In order to see the "Hello World" on the Data Visualizer, the following configuration needs to be implemented. 
+- **COM#** is selected, this may be different from the below image
+- **Baud Rate** is 9600
+- **Char length** is 8 bits
+- **Parity is** None
+- **Stop Bits** is 1 bit
+- **Source** is the selected COM Port
+- **Display As** is 8-bit ASCII
+- **Newline Character** is CR+LF
+- **Echo to Screen** is enabled (box is checked)
+
+The following image shows the terminal when it is off.
 
 *Data Visualizer - COM Port off*
 
@@ -152,4 +157,4 @@ The image below is what the Data Visualizer should look like when the button nex
 
 ## Summary
 
-The example has shown how MCC and the MPLAB Data Visualizer can be used to configure and verify that UART works on the PIC18F57Q47 device.
+The example has shown how MCC and the MPLAB Data Visualizer can be used to configure and verify that UART works on the PIC18F57Q43 device.

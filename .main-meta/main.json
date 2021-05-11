@@ -4,10 +4,10 @@
     "content": {
         "metaDataVersion": "1.1.0",
         "name": "com.microchip.mcu8.mplabx.project.pic18f57q43-hello-world-over-uart-mplab-mcc",
-        "version": " ",
+        "version": "1.0.0",
         "displayName": "Hello World over UART",
         "projectName": "pic18f57q43-hello-world-over-uart-mplab-mcc",
-        "shortDescription": "This example showcases the uart function by using Hello World and uses the Melody tool",
+        "shortDescription": "This example uses the MCC Melody Library to show how to configure the UART to transmit Hello World to a terminal program on the PC using the PIC18F57Q43 Curiosity Nano devleopment kit. Works with MPLAB X or MPLAB XPRESS IDE.",
         "ide": {
             "name": "MPLAB X",
             "semverRange": ">=5.45.0"
@@ -23,7 +23,7 @@
             "semverRange": "^1.9.175"
         },
         "configurator": {
-            "name": "Mplabx",
+            "name": "MCC",
             "semverRange": ">=4.1.0"
         },
         "device": {
@@ -39,19 +39,14 @@
         "author": "Jonah Lerner",
         "subcategories": [
             [
-                "Peripherals", "PORT"
-            ],
-            [
                 "Peripherals", "UART"
             ]
         ],
         "peripherals": [
-            "UART", 
-            "PORT"
+            "UART" 
 
         ],
         "keywords": [
-            "PORT",
             "Communications", 
             "UART",
             "Curiosity Nano",
